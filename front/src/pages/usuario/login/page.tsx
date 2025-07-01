@@ -27,7 +27,7 @@ function Login() {
     try {
       const resposta = await api.post("usuario/login", usuario);
       localStorage.setItem("token", resposta.data);
-      router.push("/lancamento/menu");
+      router.push("/lancamento/menu/page");
     } catch (erro) {
       console.error(erro);
       router.push("/usuario/deslogado")
