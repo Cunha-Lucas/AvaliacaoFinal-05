@@ -1,0 +1,40 @@
+@url_base = http://localhost:5127/api/lancamento
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtIiwiZXhwIjoxNzUwMjk3OTI2fQ.7evkxcKPAcosElpGW1mYf5lSNrtI3iCHnfxHHPyZksI
+
+### Criar lançamento
+POST {{url_base}}/criar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "descricao": "Salário do mês",
+    "valor": 4500.00,
+    "data": "2025-06-30T00:00:00",
+    "ehReceita": true,
+    "categoriaId": 1
+}
+
+### Listar lançamentos do usuário autenticado
+GET {{url_base}}/listar
+Authorization: Bearer {{token}}
+
+### Buscar lançamento por ID
+GET {{url_base}}/buscar/1
+Authorization: Bearer {{token}}
+
+### Editar lançamento
+PUT {{url_base}}/editar/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "descricao": "Salário ajustado",
+    "valor": 4700.00,
+    "data": "2025-06-30T00:00:00",
+    "ehReceita": true,
+    "categoriaId": 1
+}
+
+### Excluir lançamento
+DELETE {{url_base}}/excluir/1
+Authorization: Bearer {{token}}
